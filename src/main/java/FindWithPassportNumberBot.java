@@ -33,7 +33,7 @@ public class FindWithPassportNumberBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotToken() {
-        return "";
+        return "5685358111:AAGE7B9_RX-SuYkCO85V3NM9uCgyPjcMXhw";
     }
 
 }
