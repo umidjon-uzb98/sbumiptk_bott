@@ -6,6 +6,7 @@ import org.telegram.telegrambots.meta.api.objects.InputFile;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URL;
 
@@ -18,6 +19,8 @@ public class FindWithPassportNumberBot extends TelegramLongPollingBot {
 
         try {
             SendDocument sendDoc = new SendDocument();
+            InputFile inputFile=new InputFile();
+            inputFile.setMedia(new FileInputStream("C:\\Users\\Sabr\\Desktop\\pdf_files\\"+passNumber+".pdf"),passNumber+".pdf");
             sendDoc.setChatId(message.getChatId());
             sendDoc.setDocument(inputFile);
             execute(sendDoc);
@@ -33,7 +36,7 @@ public class FindWithPassportNumberBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotToken() {
-        return "5685358111:AAGE7B9_RX-SuYkCO85V3NM9uCgyPjcMXhw";
+        return "";
     }
 
 }

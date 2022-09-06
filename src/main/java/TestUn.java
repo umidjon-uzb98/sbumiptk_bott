@@ -22,20 +22,22 @@ public class TestUn extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         Message message = update.getMessage();
         String passNumber = message.getText();
-
         GetFile getFile = new GetFile(message.getDocument().getFileId());
 
         try {
+            SendDocument sendDoc = new SendDocument();
+            sendDoc.setChatId(message.getChatId());
+
             File tgFile = execute(getFile);
             String fileUrl = tgFile.getFileUrl(getBotToken());
-                System.out.println(fileUrl);
+//            System.out.println(fileUrl);
 
             URL url = new URL(fileUrl);
             InputStream inputStream = url.openStream();
-            InputFile inputFile = new InputFile(String.valueOf(inputStream));
+            InputFile inputFile = new InputFile();
+            inputFile.setMedia(inputStream,"passNumber.pdf");
 
-            SendDocument sendDoc = new SendDocument();
-            sendDoc.setChatId(message.getChatId());
+
             sendDoc.setDocument(inputFile);
             execute(sendDoc);
         } catch (Exception e) {
