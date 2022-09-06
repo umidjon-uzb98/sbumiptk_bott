@@ -50,7 +50,7 @@ public class TestUn extends TelegramLongPollingBot {
 
     @Override
     public String getBotToken() {
-        return "5685358111:AAGE7B9_RX-SuYkCO85V3NM9uCgyPjcMXhw";
+        return "";
     }
 
 //    private void sendFile(Long chatId, InputStream is, String name) {
